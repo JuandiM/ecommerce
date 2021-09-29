@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "one-d shop ecommerce with MERN",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuandiM/ecommerce.git"
+  },
+  "author": "JuandiM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuandiM/ecommerce/issues"
+  },
+  "homepage": "https://github.com/JuandiM/ecommerce#readme"
+}
