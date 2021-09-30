@@ -67,7 +67,7 @@ const EachProductView = ({ match }) => {
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                <button className='btn-block'
+                                <button className='btn-block btn-dark'
                                  type='button' 
                                  disabled={product.countInStock === 0}>
                                     Add to Cart
