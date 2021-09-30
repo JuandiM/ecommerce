@@ -1,23 +1,30 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+//useDispatch: to dispatch or call the action
+//useSelector: to select parts of the state
 import {useState, useEffect} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
-import axios from 'axios'
+import { listProducts } from '../actions/productActions'
 
 //HOMEVIEW PRODUCTS
 
 const HomeView = () => {
-    const [products, setProducts] = useState ([])
+    const dispatch = useDispatch ()
+
+    //UseSelector 
+    //1.Grab the products from the state
+    //2.Pull out what we want from it(loading, err or show products) 
+    //3.Display it
+    const productList = useSelector(state => state.productList)
+    const {loading, error, products } = productList
 
     useEffect(()=> {
-        const fetchProducts = async () => {
-            const {data} = await axios.get('/api/products')
-
-            setProducts(data)
-        }
-
-        fetchProducts()
-    }, [])
+        dispatch(listProducts()) 
+        //1.Make the request to the backend to get the products 
+        //2.Send them through the reducer into the state
+  
+        }, [dispatch]) //it could be empty, but we pass dispatch as dependency to avoid a warning in the console
 
     return (
         <>
