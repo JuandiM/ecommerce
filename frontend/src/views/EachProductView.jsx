@@ -8,12 +8,18 @@ import { listProductDetails } from '../actions/productActions'
 
 
 const EachProductView = ({ match }) => {
-    const dispatch = useDispatch()
 
+    const dispatch = useDispatch()
+    //UseSelector 
+    //1.Grab the products from the state
+    //2.Pull out what we want from it(loading, err or show products) 
+    //3.Display it
     const productDetails = useSelector(state => state.productDetails)
     const {loading, error, product} = productDetails
 
         useEffect(()=> {
+        //1.Make the request to the backend to get the product by id
+        //2.Send it through the reducer into the state
            dispatch(listProductDetails(match.params.id))
         }, [dispatch, match])
 
@@ -41,6 +47,37 @@ const EachProductView = ({ match }) => {
                         Description: {product.description}
                     </ListGroup.Item>
                 </ListGroup>
+                <Col md={3}>
+                    <Card>
+                        <ListGroup variant='flush'>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col>Price:</Col>
+                                    <Col><strong>€{product.price}</strong></Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col>Status:</Col>
+                                    <Col>
+                                        {product.countInStock > 0 
+                                        ? 'In Stock' 
+                                        : 'Out of Stock'}
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                                <button className='btn-block'
+                                 type='button' 
+                                 disabled={product.countInStock === 0}>
+                                    Add to Cart
+                                </button>
+                            </ListGroup.Item>
+
+                        </ListGroup>
+                    </Card>
+                </Col>
+
                 </Col>
             </Row>
         </div>

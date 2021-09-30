@@ -1,7 +1,7 @@
 {
   "name": "ecommerce",
   "version": "1.0.0",
-  "description": "one-d shop ecommerce with MERN",
+  "description": "one-d shop e-commerce with MERN",
   "main": "server.js",
   "type": "module",
   "scripts": {
