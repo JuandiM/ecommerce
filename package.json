@@ -4,7 +4,10 @@
   "description": "one-d shop ecommerce with MERN",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server"
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/JuandiM/ecommerce/issues"
   },
-  "homepage": "https://github.com/JuandiM/ecommerce#readme"
+  "homepage": "https://github.com/JuandiM/ecommerce#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.2",
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
 }
