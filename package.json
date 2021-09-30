@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "one-d shop ecommerce with MERN",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
@@ -24,6 +25,7 @@
     "nodemon": "^2.0.13"
   },
   "dependencies": {
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.0.8"
   }
 }
