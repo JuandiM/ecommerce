@@ -1,15 +1,16 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import {Row, Col, ListGroup, Card, Image, Button, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions'
+import { addToCart } from '../actions/cartActions'
 
 //Match: params property which contains all the parameters in URL
 //History: history.push() redirects you to another URL
 const EachProductView = ({ history, match }) => {
-    const [quantity, setQuantity] = useState(1)
+    const [qty, setQty] = useState(1)
 
 
     const dispatch = useDispatch()
@@ -26,8 +27,8 @@ const EachProductView = ({ history, match }) => {
            dispatch(listProductDetails(match.params.id))
         }, [dispatch, match])
 
-        const addToCardHandler = () => {
-            history.push(`/cart/${match.params.id}?qty=${quantity}`) 
+        const addToCartHandler = () => {
+            history.push(`/cart/${match.params.id}?qty=${qty}`) 
             //when you click "Add to Cart" will redirect to Cart/id/quantity
         }
 
@@ -80,13 +81,13 @@ const EachProductView = ({ history, match }) => {
                                         <Row>
                                             <Col>Quantity</Col>
                                             <Col>
-                                                <Form.Control as='select' value={quantity} onChange = {(event) =>
-                                                    setQuantity(event.target.value)}>
+                                                <Form.Control as='select' value={qty} onChange = {(event) =>
+                                                    setQty(event.target.value)}>
                                                         {[...Array(product.countInStock)
-                                                        // {/** [0,1,2,3,4...]*/}
+                                                        // {/** [0,1,2,3,4...] array with the number of stock*/}
                                                         .keys()] 
                                                         .map(x => (
-                                                            <option key={x +1} value={x +1}>
+                                                            <option key={x + 1} value={x + 1}>
                                                                 {x + 1}
                                                             </option>
                                                         ))}
@@ -98,7 +99,7 @@ const EachProductView = ({ history, match }) => {
 
                                 <ListGroup.Item>
                                     <Button 
-                                        onClick={addToCardHandler}
+                                        onClick={addToCartHandler}
                                         className='btn-block'
                                         type='button' 
                                         disabled={product.countInStock === 0}>

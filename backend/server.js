@@ -17,6 +17,7 @@ app.get ('/', (req, res) => {
 
 //link api/products to productRoutes
 app.use ('/api/products', productRoutes) 
+app.use('/cart/api/products', productRoutes)
 
 
 
