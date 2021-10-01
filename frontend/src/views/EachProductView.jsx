@@ -2,12 +2,15 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
-import {Row, Col, ListGroup, Card, Image,} from 'react-bootstrap'
+import {Row, Col, ListGroup, Card, Image, Button, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions'
 
+//Match: params property which contains all the parameters in URL
+//History: history.push() redirects you to another URL
+const EachProductView = ({ history, match }) => {
+    const [quantity, setQuantity] = useState(0)
 
-const EachProductView = ({ match }) => {
 
     const dispatch = useDispatch()
     //UseSelector 
@@ -22,6 +25,11 @@ const EachProductView = ({ match }) => {
         //2.Send it through the reducer into the state
            dispatch(listProductDetails(match.params.id))
         }, [dispatch, match])
+
+        const addToCardHandler = () => {
+            history.push(`/cart/${match.params.id}?qty=${quantity}`) 
+            //when you click "Add to Cart" will redirect to Cart/id/quantity
+        }
 
     return (
         <div>
@@ -66,18 +74,40 @@ const EachProductView = ({ match }) => {
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
-                            <ListGroup.Item>
-                                <button className='btn-block btn-dark'
-                                 type='button' 
-                                 disabled={product.countInStock === 0}>
-                                    Add to Cart
-                                </button>
-                            </ListGroup.Item>
+                            {/** Quantity of products to add on the cart*/}
+                                {product.countInStock > 0 && (
+                                    <ListGroup.Item>
+                                        <Row>
+                                            <Col>Quantity</Col>
+                                            <Col>
+                                                <Form.Control as='select' value={quantity} onChange = {(event) =>
+                                                    setQuantity(event.target.value)}>
+                                                        {[...Array(product.countInStock)
+                                                        // {/** [0,1,2,3,4...]*/}
+                                                        .keys()] 
+                                                        .map(x => (
+                                                            <option key={x +1} value={x +1}>
+                                                                {x + 1}
+                                                            </option>
+                                                        ))}
+                                                </Form.Control>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                )}
 
-                        </ListGroup>
-                    </Card>
-                </Col>
-
+                                <ListGroup.Item>
+                                    <Button 
+                                        onClick={addToCardHandler}
+                                        className='btn-block'
+                                        type='button' 
+                                        disabled={product.countInStock === 0}>
+                                            Add to Cart
+                                    </Button>
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Card>
+                    </Col>
                 </Col>
             </Row>
         </div>

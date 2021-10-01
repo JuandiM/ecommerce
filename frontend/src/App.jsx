@@ -4,8 +4,8 @@ import {Container} from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer';
 import HomeView from './views/HomeView';
-import ProductView from './views/EachProductView'
 import EachProductView from './views/EachProductView';
+import CartView from './views/CartView';
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
           <Container>
             <Route exact path='/' component={HomeView} />
             <Route path='/product/:id' component={EachProductView} />
+            <Route path='/cart/:id?' component={CartView} />
         </Container>
       
         </main>
