@@ -2,6 +2,8 @@ import express from 'express'
 import connectDB from './config/db.js'
 import dotenv from 'dotenv'
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+
 
 
 dotenv.config()
@@ -10,6 +12,9 @@ connectDB()
 
 const app = express ()
 
+//get json data from the body
+app.use(express.json())
+
 //API GET ROUTES
 app.get ('/', (req, res) => {
     res.send ('API is working...')
@@ -17,9 +22,7 @@ app.get ('/', (req, res) => {
 
 //link api/products to productRoutes
 app.use ('/api/products', productRoutes) 
-app.use('/cart/api/products', productRoutes)
-
-
+app.use('/api/users', userRoutes)
 
 //PORT CONFIG
 const PORT = process.env.PORT || 5000
