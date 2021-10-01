@@ -9,7 +9,6 @@ import { cartReducer } from './reducers/cartReducers'
 
 //Combine Reducer for products and products list. 
 //Will handle different functionality depending of the requests (success, fail,...)
-
 const reducer = combineReducers({
     productList: productListReducer,
     productDetails: productDetailsReducer,

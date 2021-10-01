@@ -9,7 +9,7 @@ import { listProductDetails } from '../actions/productActions'
 //Match: params property which contains all the parameters in URL
 //History: history.push() redirects you to another URL
 const EachProductView = ({ history, match }) => {
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
 
     const dispatch = useDispatch()
