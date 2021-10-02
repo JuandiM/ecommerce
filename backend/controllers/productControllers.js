@@ -1,4 +1,4 @@
-import asyncHandler from "express-async-handler";
+import asyncHandler from 'express-async-handler'
 import Product from '../models/productModel.js'
 
 //Fetch all products -> GET /api/products
