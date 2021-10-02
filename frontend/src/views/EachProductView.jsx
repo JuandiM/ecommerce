@@ -6,6 +6,8 @@ import {Row, Col, ListGroup, Card, Image, Button, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions'
 import { addToCart } from '../actions/cartActions'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 //Match: params property which contains all the parameters in URL
 //History: history.push() redirects you to another URL
@@ -37,6 +39,11 @@ const EachProductView = ({ history, match }) => {
             <Link className='btn btn-light my-3' 
                 to ='/'>Back to Home
             </Link>
+            {loading ? 
+            <Loader /> 
+            : error ? 
+            <Message variant='danger'>{error}</Message> 
+            : (
             <Row>
                 <Col md={6}>
                     <Image fluid src={product.image} alt={product.name} />
@@ -111,6 +118,9 @@ const EachProductView = ({ history, match }) => {
                     </Col>
                 </Col>
             </Row>
+
+        )}
+
         </div>
     )
 }

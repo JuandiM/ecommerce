@@ -6,6 +6,8 @@ import {useState, useEffect} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 
 //HOMEVIEW PRODUCTS
 
@@ -29,7 +31,14 @@ const HomeView = () => {
     return (
         <>
             <h1>Products</h1>
-            <Row>
+                {loading ? ( 
+                <Loader /> ) 
+                : error ? ( 
+                <Message variant='danger'>
+                    {error}
+                </Message>
+                ) : (
+                <Row>
                 {products.map(product =>( //Loop all products
                     <Col key={product._id} //Access to each product we are looping with the id
                         sm={12} md={6} lg={4} xl={3}>
@@ -37,6 +46,8 @@ const HomeView = () => {
                     </Col>
                 ))}
             </Row>
+            )}
+
         </>
     )
 }

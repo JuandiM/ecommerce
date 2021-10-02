@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import HomeView from './views/HomeView';
 import EachProductView from './views/EachProductView';
 import CartView from './views/CartView';
+import LoginView from './views/LoginView';
 
 
 function App() {
@@ -14,9 +15,10 @@ function App() {
       <Header />
         <main className='py-3'>
           <Container>
-            <Route exact path='/' component={HomeView} />
+            <Route path='/login' component={LoginView} />
             <Route path='/product/:id' component={EachProductView} />
             <Route path='/cart/:id?' component={CartView} />
+            <Route exact path='/' component={HomeView} />
         </Container>
       
         </main>
