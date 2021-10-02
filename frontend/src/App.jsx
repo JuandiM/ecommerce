@@ -8,6 +8,7 @@ import EachProductView from './views/EachProductView';
 import CartView from './views/CartView';
 import LoginView from './views/LoginView';
 import RegisterView from './views/RegisterView';
+import ProfileView from './views/ProfileView';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Header />
         <main className='py-3'>
           <Container>
+            <Route path='/profile' component={ProfileView} />
             <Route path='/register' component={RegisterView} />
             <Route path='/login' component={LoginView} />
             <Route path='/product/:id' component={EachProductView} />
