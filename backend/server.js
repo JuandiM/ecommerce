@@ -21,7 +21,6 @@ app.get ('/', (req, res) => {
     res.send ('API is working...')
 })
 
-//link api/products to productRoutes
 app.use ('/api/products', productRoutes) 
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
