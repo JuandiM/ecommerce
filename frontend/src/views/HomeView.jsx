@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 //useDispatch: to dispatch or call the action
 //useSelector: to select parts of the state
-import {useState, useEffect} from 'react'
+import {useEffect} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'

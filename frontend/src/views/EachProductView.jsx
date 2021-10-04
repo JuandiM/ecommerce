@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 import {Row, Col, ListGroup, Card, Image, Button, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions'
-import { addToCart } from '../actions/cartActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 

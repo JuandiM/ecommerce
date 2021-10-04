@@ -1,7 +1,7 @@
 import React from 'react'
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import {Row, Col, Image, Card, ListGroup, Button, ListGroupItem} from 'react-bootstrap'
+import {Row, Col, Image, Card, ListGroup, Button } from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
@@ -37,7 +37,7 @@ const PlaceOrderView = ({history}) => {
         if(success) {
             history.push(`/order/${order._id}`)
         }
-    }, [history, success])
+    }, [history, success, order._id])
 
     
     const placeOrderHandler = () => {
