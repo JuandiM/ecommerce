@@ -23,7 +23,7 @@ const UserListView = ({history}) => {
         if(userInfo && userInfo.isAdmin) {
            dispatch(listUsers()) 
         } else {
-            history.pushState('/login')
+            history.push('/login')
         }
         
     }, [dispatch, history, successDelete, userInfo])
@@ -53,6 +53,7 @@ const UserListView = ({history}) => {
                   <tbody>
                       {users.map(user => (
                           <tr key={user._id}>
+                              <td>{user._id}</td>
                               <td>{user.name}</td>
                               <td><a href={`mailto:${user.email}`}>{user.email}</a></td>
                               <td>
