@@ -1,6 +1,6 @@
 import express from 'express'
-import { authUser, getUserProfile, registerUser, updateUserProfile } from '../controllers/userControllers.js'
-import {protect} from '../middleware/authMiddleware.js'
+import { authUser, getUserProfile, registerUser, updateUserProfile, getUsers } from '../controllers/userControllers.js'
+import {protect, admin} from '../middleware/authMiddleware.js'
 
 
 const router = express.Router()
@@ -14,7 +14,7 @@ router.route('/profile')
 .put(protect, updateUserProfile)
 
 //new user
-router.route('/').post(registerUser)
+router.route('/').post(registerUser).get(protect, admin, getUsers)
 
 
 export default router;

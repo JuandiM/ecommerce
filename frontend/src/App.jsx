@@ -13,6 +13,7 @@ import ShippingView from './views/ShippingView';
 import PaymentView from './views/PaymentView';
 import PlaceOrderView from './views/PlaceOrderView';
 import OrderView from './views/OrderView';
+import UserListView from './views/UserListView';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path='/login' component={LoginView} />
             <Route path='/product/:id' component={EachProductView} />
             <Route path='/cart/:id?' component={CartView} />
+            <Route path='/admin/userlist' component={UserListView} />
             <Route exact path='/' component={HomeView} />
         </Container>
       
