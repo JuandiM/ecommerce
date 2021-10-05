@@ -9,6 +9,7 @@ import { listProducts } from '../actions/productActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Paginate from './Paginate'
+import ProductCarousel from '../components/ProductCarousel'
 
 //HOMEVIEW PRODUCTS
 
@@ -34,6 +35,7 @@ const HomeView = ({match}) => {
 
     return (
         <>
+        {!keyword && <ProductCarousel /> }
             <h1>Products</h1>
                 {loading ? ( 
                 <Loader /> ) 
