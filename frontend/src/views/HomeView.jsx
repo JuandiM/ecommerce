@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 //useDispatch: to dispatch or call the action
 //useSelector: to select parts of the state
@@ -8,6 +9,7 @@ import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Meta from '../components/Meta'
 import Paginate from './Paginate'
 import ProductCarousel from '../components/ProductCarousel'
 
@@ -35,7 +37,8 @@ const HomeView = ({match}) => {
 
     return (
         <>
-        {!keyword && <ProductCarousel /> }
+        <Meta />
+        {!keyword ? <ProductCarousel/> : (<Link to='/' className='btn btn-light'>Back to Home</Link> )}
             <h1>Products</h1>
                 {loading ? ( 
                 <Loader /> ) 
