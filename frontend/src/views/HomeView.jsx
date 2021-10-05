@@ -8,11 +8,13 @@ import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Paginate from './Paginate'
 
 //HOMEVIEW PRODUCTS
 
 const HomeView = ({match}) => {
     const keyword = match.params.keyword
+    const pageNumber = match.params.pageNumber || 1
 
     const dispatch = useDispatch ()
 
@@ -21,14 +23,14 @@ const HomeView = ({match}) => {
     //2.Pull out what we want from it(loading, err or show products) 
     //3.Display it
     const productList = useSelector(state => state.productList)
-    const {loading, error, products } = productList
+    const {loading, error, products, page, pages } = productList
 
     useEffect(()=> {
-        dispatch(listProducts(keyword)) 
+        dispatch(listProducts(keyword, pageNumber)) 
         //1.Make the request to the backend to get the products 
         //2.Send them through the reducer into the state
   
-        }, [dispatch, keyword]) //it could be empty, but we pass dispatch as dependency to avoid a warning in the console
+        }, [dispatch, keyword, pageNumber]) //it could be empty, but we pass dispatch as dependency to avoid a warning in the console
 
     return (
         <>
@@ -40,6 +42,7 @@ const HomeView = ({match}) => {
                     {error}
                 </Message>
                 ) : (
+                    <>
                 <Row>
                 {products.map(product =>( //Loop all products
                     <Col key={product._id} //Access to each product we are looping with the id
@@ -48,6 +51,11 @@ const HomeView = ({match}) => {
                     </Col>
                 ))}
             </Row>
+            <Paginate 
+            pages={pages} 
+            page={page} 
+            keyword={keyword ? keyword : ''} />
+            </>
             )}
 
         </>

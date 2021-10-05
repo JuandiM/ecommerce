@@ -5,11 +5,11 @@ import axios from 'axios'
 //Redux Actions: JS Object with a type field. Event that describes something that happened in the application.
 
 //Dispatch the actions (PRODUCT_LIST...) for the list of products
-export const listProducts = (keyword = '') => async (dispatch) => { //Redux thunk allows us to add a function within a function
+export const listProducts = (keyword = '', pageNumber = '') => async (dispatch) => { //Redux thunk allows us to add a function within a function
 try {
     dispatch({type: PRODUCT_LIST_REQUEST}) //will call the reducer
 
-    const {data} = await axios.get(`/api/products?keyword=${keyword}`)
+    const {data} = await axios.get(`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`)
 
     dispatch ({
         type: PRODUCT_LIST_SUCCESS,

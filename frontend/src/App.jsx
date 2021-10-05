@@ -38,10 +38,13 @@ function App() {
             <Route path='/cart/:id?' component={CartView} />
             <Route path='/admin/userlist' component={UserListView} />
             <Route path='/admin/user/:id/edit' component={UserEditView} />
-            <Route path='/admin/productlist' component={ProductListView} />
+            <Route exact path='/admin/productlist' component={ProductListView} />
+            <Route exact path='/admin/productlist/:pageNumber' component={ProductListView} />
             <Route path='/admin/orderlist' component={OrderListView} />
             <Route path='/admin/product/:id/edit' component={ProductEditView} />
             <Route exact path='/search/:keyword' component={HomeView} />
+            <Route exact path='/page/:pageNumber' component={HomeView} />
+            <Route exact path='/search/:keyword/page/:pageNumber' component={HomeView} />
             <Route exact path='/' component={HomeView} />
         </Container>
       
