@@ -11,7 +11,9 @@ import Loader from '../components/Loader'
 
 //HOMEVIEW PRODUCTS
 
-const HomeView = () => {
+const HomeView = ({match}) => {
+    const keyword = match.params.keyword
+
     const dispatch = useDispatch ()
 
     //UseSelector 
@@ -22,11 +24,11 @@ const HomeView = () => {
     const {loading, error, products } = productList
 
     useEffect(()=> {
-        dispatch(listProducts()) 
+        dispatch(listProducts(keyword)) 
         //1.Make the request to the backend to get the products 
         //2.Send them through the reducer into the state
   
-        }, [dispatch]) //it could be empty, but we pass dispatch as dependency to avoid a warning in the console
+        }, [dispatch, keyword]) //it could be empty, but we pass dispatch as dependency to avoid a warning in the console
 
     return (
         <>
