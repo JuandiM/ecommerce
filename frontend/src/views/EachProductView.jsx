@@ -189,7 +189,7 @@ const EachProductView = ({ history, match }) => {
                                 </Button>
                             </Form>
                             ) : <Message>Please 
-                                <Link to ='/login'>login</Link> to review a product</Message>}
+                                <Link to ='/login'> login</Link> to review a product</Message>}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>

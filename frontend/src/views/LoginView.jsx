@@ -35,6 +35,7 @@ const LoginView = ({location, history}) => {
     return (
         <FormContainer>
             <h1>Sign In</h1>
+            {loading && <Loader />}
             {error && <Message variant='danger'>{error}</Message>}
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='email'>
