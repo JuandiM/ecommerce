@@ -43,6 +43,7 @@ const RegisterView = ({location, history}) => {
     return (
         <FormContainer>
             <h1>Sign Up</h1>
+            {loading && <Loader />}
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             <Form onSubmit={submitHandler}>

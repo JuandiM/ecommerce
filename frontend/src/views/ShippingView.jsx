@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, ProgressBar} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
@@ -27,6 +27,7 @@ const ShippingView = ({history}) => {
 
     return (
         <FormContainer>
+            <ProgressBar variant="success" animated now={45} />
             <CheckoutSteps step1 step2 />
             <h2>Shipping</h2>
             <Form onSubmit={submitHandler}>

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 //useDispatch: to dispatch or call the action
 //useSelector: to select parts of the state
+import {Route} from 'react-router-dom'
 import {useEffect} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
@@ -10,6 +11,7 @@ import { listProducts } from '../actions/productActions'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Meta from '../components/Meta'
+import SearchBox from '../components/SearchBox'
 import Paginate from './Paginate'
 import ProductCarousel from '../components/ProductCarousel'
 
@@ -38,6 +40,7 @@ const HomeView = ({match}) => {
     return (
         <>
         <Meta />
+        <Route render={({ history }) => <SearchBox history={history} />} />
         {!keyword ? <ProductCarousel/> : (<Link to='/' className='btn btn-light'>Back to Home</Link> )}
             <h1>Products</h1>
                 {loading ? ( 

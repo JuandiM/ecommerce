@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import {Form, Button, Col} from 'react-bootstrap'
+import {Form, Button, Col, ProgressBar} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
@@ -28,6 +28,7 @@ const PaymentView = ({history}) => {
 
     return (
         <FormContainer>
+            <ProgressBar variant="success" animated now={70} />
             <CheckoutSteps step1 step2 step3/>
             <h2>Payment Method</h2>
             <Form onSubmit={submitHandler}>
@@ -43,26 +44,27 @@ const PaymentView = ({history}) => {
                 value='PayPal' checked 
                 onChange={(event) => setPaymentMethod(event.target.value)}>
                 </Form.Check>
-      {/*           <Form.Check 
+                <Form.Check 
                 type='radio' 
                 label='Stripe' 
                 id='Stripe' name='paymentMethod' 
                 value='Stripe' checked 
+                disabled
                 onChange={(event) => setPaymentMethod(event.target.value)}>
                 </Form.Check>
                 <Form.Check 
                 type='radio' 
                 label='Bank Transfer' 
                 id='Bank Transfer' name='paymentMethod' 
-                value='Bank Transfer' checked 
+                value='Bank Transfer' checked
+                disabled 
                 onChange={(event) => setPaymentMethod(event.target.value)}>
-                </Form.Check> */}
+                </Form.Check>
                 </Col>
                 </Form.Group>
                 <Button type='submit' variant='primary'>
                     Continue
                 </Button>
-
             </Form>
         </FormContainer>
     )

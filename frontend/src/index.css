@@ -4,7 +4,7 @@ main {
 
 h1 {
   font-size: 1.8rem;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 h2 {
@@ -18,4 +18,14 @@ h3 {
 
 .rating span{
   margin: 0.1rem;
+}
+
+.d-flex{
+  padding-left: 100px;
+  padding: 2rem;
+}
+
+.ml-auto{
+  display: flex;
+ 
 }

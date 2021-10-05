@@ -1,11 +1,12 @@
 import React from 'react'
 import {useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import {Row, Col, Image, Card, ListGroup, Button } from 'react-bootstrap'
+import {Row, Col, Image, Card, ListGroup, Button, ProgressBar } from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
 import Message from '../components/Message'
 import CheckoutSteps from '../components/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
+import FormContainer from '../components/FormContainer'
 
 const PlaceOrderView = ({history}) => {
     const dispatch = useDispatch()
@@ -55,24 +56,27 @@ const PlaceOrderView = ({history}) => {
 
     return (
         <>
+        <FormContainer>
+        <ProgressBar variant="success" animated now={90} />
            <CheckoutSteps step1 step2 step3 step4 />
+           </FormContainer>
            <Row>
                <Col md={8}>
                    <ListGroup variant='flush'>
                        <ListGroup.Item>
                            <h2>Shipping</h2>
                            <p>
-                               <strong>Address:</strong>
-                               {cart.shippingAddress.address}, 
-                               {cart.shippingAddress.city}, 
-                               {cart.shippingAddress.postalCode}, 
+                               <strong>Address: </strong>
+                               {cart.shippingAddress.address}&nbsp;
+                               {cart.shippingAddress.city}&nbsp;
+                               {cart.shippingAddress.postalCode}&nbsp; 
                                {cart.shippingAddress.country}
                             </p>
                        </ListGroup.Item>
 
                        <ListGroup.Item>
                            <h2>Payment Method</h2>
-                               <strong>Method selected:</strong>
+                               <strong>Method selected: </strong>
                                {cart.paymentMethod}
                        </ListGroup.Item>
 

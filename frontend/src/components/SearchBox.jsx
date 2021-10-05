@@ -16,7 +16,7 @@ const SearchBox = ({history}) => {
     }
 
     return (
-        <Form onSubmit={submitHandler} inline>
+        <Form className="d-flex" style={{ maxWidth: '60%', align: 'justify-content-center'}} onSubmit={submitHandler} inline>
             <Form.Control 
                 type='text' 
                 name='q' 
