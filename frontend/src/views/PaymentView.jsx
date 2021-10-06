@@ -29,22 +29,22 @@ const PaymentView = ({history}) => {
     return (
         <FormContainer>
             <ProgressBar variant="success" animated now={70} />
-            <CheckoutSteps step1 step2 step3/>
+            <CheckoutSteps className='steps' step1 step2 step3/>
             <h2>Payment Method</h2>
             <Form onSubmit={submitHandler}>
-                <Form.Group>
-                    <Form.Label as='legend'>
+                <Form.Group >
+                    <Form.Label className='mb-4'as='legend'>
                     Select Method
                     </Form.Label>
-                <Col>
-                <Form.Check 
+                <Col >
+                <Form.Check className='mt-4'
                 type='radio' 
                 label='PayPal or Credit/Debit Card' 
                 id='Paypal' name='paymentMethod' 
                 value='PayPal' checked 
                 onChange={(event) => setPaymentMethod(event.target.value)}>
                 </Form.Check>
-                <Form.Check 
+                <Form.Check className='mt-3' 
                 type='radio' 
                 label='Stripe' 
                 id='Stripe' name='paymentMethod' 
@@ -52,7 +52,7 @@ const PaymentView = ({history}) => {
                 disabled
                 onChange={(event) => setPaymentMethod(event.target.value)}>
                 </Form.Check>
-                <Form.Check 
+                <Form.Check className='mt-3'
                 type='radio' 
                 label='Bank Transfer' 
                 id='Bank Transfer' name='paymentMethod' 
@@ -62,7 +62,7 @@ const PaymentView = ({history}) => {
                 </Form.Check>
                 </Col>
                 </Form.Group>
-                <Button type='submit' variant='primary'>
+                <Button className='button1 mt-3' type='submit' variant='primary'>
                     Continue
                 </Button>
             </Form>

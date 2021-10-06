@@ -57,7 +57,7 @@ const UserEditView = ({match, history}) => {
             {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
             <Form onSubmit={submitHandler}>
-                <Form.Group controlId='name'>
+                <Form.Group className='mt-3' controlId='name'>
                     <Form.Label>Name</Form.Label>
                         <Form.Control 
                             type='name' 
@@ -68,7 +68,7 @@ const UserEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='email'>
+                <Form.Group className='mt-3' controlId='email'>
                     <Form.Label>Email Address</Form.Label>
                         <Form.Control 
                             type='email' 
@@ -79,7 +79,7 @@ const UserEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='isadmin'>
+                <Form.Group className='mt-3' controlId='isadmin'>
                         <Form.Check 
                             type='checkbox'
                             label='Is Admin' 
@@ -89,7 +89,7 @@ const UserEditView = ({match, history}) => {
                         </Form.Check>
                 </Form.Group>
 
-                    <Button type='submit' variant='primary'>
+                    <Button className='button1 mt-3' type='submit' variant='primary'>
                         Update account
                     </Button>
             </Form>

@@ -41,10 +41,8 @@ const ProductListView = ({history, match}) => {
     }, [dispatch, history, userInfo, successDelete, successCreate, createdProduct, pageNumber])
 
     const deleteHandler = (id) => {
-        if(window.confirm('Are you sure you want to delete this product?')){
-            dispatch(deleteProduct(id))
-        }
-        
+        //if(window.confirm('Are you sure you want to delete this product?')){
+            dispatch(deleteProduct(id))   
     }
 
     const createProductHandler = () => {
@@ -59,7 +57,7 @@ const ProductListView = ({history, match}) => {
             <h1>Products</h1>
             </Col>
             <Col className='text-right'>
-                <Button className='my-3' 
+                <Button className='button1 my-3' 
                 onClick={createProductHandler}>
                     <i className='fas fa-plus'></i> 
                     Create Product

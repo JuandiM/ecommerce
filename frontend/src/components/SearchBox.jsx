@@ -16,18 +16,18 @@ const SearchBox = ({history}) => {
     }
 
     return (
-        <Form className="d-flex" style={{ maxWidth: '60%', align: 'justify-content-center'}} onSubmit={submitHandler} inline>
+        <Form className="d-flex align-items-center" style={{ maxWidth: 'auto'}} onSubmit={submitHandler} inline>
             <Form.Control 
                 type='text' 
                 name='q' 
                 onChange={(event) => setKeyword(event.target.value)}
                 placeholder='Find your products...'
-                className='mr-sm-2 ml-sm-5'>
+                className='mr-sm-2 ml-sm-10'>
             </Form.Control>
             <Button 
             type='submit' 
             variant='outline-success' 
-            className='p-2'>
+            className='button1 p-2'>
                 Search
                 </Button>
             

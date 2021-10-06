@@ -64,7 +64,7 @@ const ProfileView = ({location, history}) => {
             {success && <Message variant='success'>Profile Updated</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
-            <Form.Group controlId='name'>
+            <Form.Group className='mt-3' controlId='name'>
                     <Form.Label>Name</Form.Label>
                         <Form.Control 
                             type='name' 
@@ -75,7 +75,7 @@ const ProfileView = ({location, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='email'>
+                <Form.Group className='mt-3' controlId='email'>
                     <Form.Label>Email Address</Form.Label>
                         <Form.Control 
                             type='email' 
@@ -86,7 +86,7 @@ const ProfileView = ({location, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='password'>
+                <Form.Group className='mt-3' controlId='password'>
                     <Form.Label>Password</Form.Label>
                         <Form.Control 
                             type='password' 
@@ -97,7 +97,7 @@ const ProfileView = ({location, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='confirmPassword'>
+                <Form.Group className='mt-3' controlId='confirmPassword'>
                     <Form.Label>Confirm Password</Form.Label>
                         <Form.Control 
                             type='password' 
@@ -108,7 +108,7 @@ const ProfileView = ({location, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                    <Button type='submit' variant='primary'>
+                    <Button className='button1 mt-3' type='submit' variant='primary'>
                         Update
                     </Button>
             </Form>
@@ -150,7 +150,7 @@ const ProfileView = ({location, history}) => {
                   </td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
-                      <Button className='btn-sm' variant='light'>
+                      <Button className='button1 btn-sm' variant='light'>
                         Details
                       </Button>
                     </LinkContainer>

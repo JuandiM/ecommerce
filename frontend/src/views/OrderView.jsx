@@ -103,7 +103,7 @@ const OrderView = ({match, history}) => {
                             </p>
                             {order.isDelivered 
                             ? <Message variant='success'>
-                                Delivered on {order.deliveredAt}</Message> 
+                                Delivered on {order.deliveredAt.substring(0, 10)}</Message> 
                             : <Message variant='danger'>Not delivered</Message>}
                        </ListGroup.Item>
 
@@ -115,7 +115,7 @@ const OrderView = ({match, history}) => {
                             </p>
                             {order.isPaid 
                             ? <Message variant='success'>
-                                Paid on {order.paidAt}</Message> 
+                                Paid on {order.paidAt.substring(0, 10)}</Message> 
                             : <Message variant='danger'>Not paid</Message>}
                        </ListGroup.Item>
 
@@ -185,14 +185,14 @@ const OrderView = ({match, history}) => {
                            )}
                             {loadingDeliver && <Loader />}
                            {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                               <ListGroup.Item>
+                               <ListGroup>
                                    <Button 
                                    type='button' 
-                                   className='btn btn-block' 
+                                   className='button2 btn btn-block' 
                                    onClick={deliverHandler}>
                                        Mark as Delivered
                                     </Button>
-                               </ListGroup.Item>
+                               </ListGroup>
                            )}
                        </ListGroup>
                    </Card>

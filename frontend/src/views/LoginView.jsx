@@ -37,8 +37,8 @@ const LoginView = ({location, history}) => {
             <h1>Sign In</h1>
             {loading && <Loader />}
             {error && <Message variant='danger'>{error}</Message>}
-            <Form onSubmit={submitHandler}>
-                <Form.Group controlId='email'>
+            <Form  onSubmit={submitHandler}>
+                <Form.Group className='mt-3' controlId='email'>
                     <Form.Label>Email Address</Form.Label>
                         <Form.Control 
                             type='email' 
@@ -49,7 +49,7 @@ const LoginView = ({location, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='password'>
+                <Form.Group className='mt-3' controlId='password'>
                     <Form.Label>Password</Form.Label>
                         <Form.Control 
                             type='password' 
@@ -60,7 +60,7 @@ const LoginView = ({location, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                    <Button type='submit' variant='primary'>
+                    <Button className='button1 mt-3' type='submit' variant='primary'>
                         Sign In
                     </Button>
             </Form>

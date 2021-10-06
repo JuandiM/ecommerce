@@ -92,16 +92,18 @@ const CartView = ({ match, location, history}) => {
                         <ListGroup variant='flush'>
                             <ListGroup.Item>
                                 <h3>Subtotal ({cartItems.reduce((acc, item)=> acc + item.qty, 0)}) items</h3>
+                                <div className='mb-3'>
                                 €{cartItems.reduce((acc, item)=> acc + item.qty * item.price, 0).toFixed(2)}
+                                </div>
                             </ListGroup.Item>
-                            <ListGroup.Item>
+                            <ListGroup className='d-grid gap-1'>
                                 <Button 
                                     type='button' 
-                                    className='btn-block' 
+                                    className='button1' 
                                     disabled={cartItems.length ===0} 
                                     onClick={checkoutHandler}>Checkout
                                 </Button>
-                            </ListGroup.Item>
+                            </ListGroup>
                         </ListGroup>
                     </Card>
                 </Col>   

@@ -36,7 +36,7 @@ const EachProductView = ({ history, match }) => {
         //1.Make the request to the backend to get the product by id
         //2.Send it through the reducer into the state
         if(successProductReview) {
-            alert('Review submitted!')
+            //alert('Review submitted!')
             setRating(0)
             setComment('')
             dispatch({type: PRODUCT_CREATE_REVIEW_RESET})
@@ -113,7 +113,7 @@ const EachProductView = ({ history, match }) => {
                                         <Row>
                                             <Col>Quantity</Col>
                                             <Col>
-                                                <Form.Control as='select' value={qty} onChange = {(event) =>
+                                                <Form.Control className='mb-2' size='sm' as='select' value={qty} onChange = {(event) =>
                                                     setQty(event.target.value)}>
                                                         {[...Array(product.countInStock)
                                                         // {/** [0,1,2,3,4...] array with the number of stock*/}
@@ -129,15 +129,15 @@ const EachProductView = ({ history, match }) => {
                                     </ListGroup.Item>
                                 )}
 
-                                <ListGroup.Item>
+                                <ListGroup className="d-grid gap-2">
                                     <Button 
                                         onClick={addToCartHandler}
-                                        className='btn-block'
+                                        className='button1'
                                         type='button' 
                                         disabled={product.countInStock === 0}>
                                             Add to Cart
                                     </Button>
-                                </ListGroup.Item>
+                                </ListGroup>
                             </ListGroup>
                         </Card>
                 </Col>
@@ -149,7 +149,9 @@ const EachProductView = ({ history, match }) => {
                     <ListGroup variant='flush'>
                         {product.reviews.map(review =>(
                             <ListGroup.Item key={review._id}>
-                                <strong>{review.name}</strong>
+                                <div className='userName'>
+                                    <strong>{review.name}</strong>
+                                </div>
                                 <Rating value={review.rating}/>
                                 <p>{review.createdAt.substring(0, 10)}</p>
                                 <p>{review.comment}</p>
@@ -157,12 +159,12 @@ const EachProductView = ({ history, match }) => {
                             
                         ))}
                         <ListGroup.Item>
-                            <h3>Write a Review to this Product</h3>
+                            <h3>Review this Product</h3>
                             {errorProductReview && 
                             <Message variant='danger'>{errorProductReview}
                             </Message>}
                             {userInfo ? (<Form onSubmit={submitHandler}>
-                                <Form.Group controlId='rating'>
+                                <Form.Group className='mt-3' controlId='rating'>
                                     <Form.Label>Rating</Form.Label>
                                     <Form.Control 
                                     as='select' 
@@ -176,7 +178,7 @@ const EachProductView = ({ history, match }) => {
                                         <option value='5'>5 - Excellent</option>
                                     </Form.Control>
                                 </Form.Group>
-                                <Form.Group controlId='comment'>
+                                <Form.Group className='mt-3' controlId='comment'>
                                     <Form.Label>Comment</Form.Label>
                                     <Form.Control 
                                     as='textarea' 
@@ -185,7 +187,8 @@ const EachProductView = ({ history, match }) => {
                                     onChange={(event) => setComment(event.target.value)}>
                                     </Form.Control>
                                 </Form.Group>
-                                <Button type='submit' variant='primary'>Submit
+                                
+                                <Button className='button1 mt-3' type='submit' variant='primary'>Submit
                                 </Button>
                             </Form>
                             ) : <Message>Please 

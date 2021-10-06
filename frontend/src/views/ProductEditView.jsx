@@ -98,7 +98,7 @@ const ProductEditView = ({match, history}) => {
             {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
             <Form onSubmit={submitHandler}>
-                <Form.Group controlId='name'>
+                <Form.Group className='mt-3' controlId='name'>
                     <Form.Label>Name</Form.Label>
                         <Form.Control 
                             type='name' 
@@ -109,7 +109,7 @@ const ProductEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='price'>
+                <Form.Group className='mt-3' controlId='price'>
                     <Form.Label>Price</Form.Label>
                         <Form.Control 
                             type='number'
@@ -120,7 +120,7 @@ const ProductEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='image'>
+                <Form.Group className='mt-3' controlId='image'>
                     <Form.Label>Image</Form.Label>
                         <Form.Control 
                             type='text'
@@ -129,7 +129,7 @@ const ProductEditView = ({match, history}) => {
                             onChange={(event) => 
                             setImage(event.target.value)}>
                         </Form.Control>
-                        <Form.File 
+                        <Form.File className='mt-3'
                         id='image-file' 
                         label='Choose File' 
                         custom 
@@ -138,7 +138,7 @@ const ProductEditView = ({match, history}) => {
                         </Form.File>
                 </Form.Group>
 
-                <Form.Group controlId='brand'>
+                <Form.Group className='mt-3' controlId='brand'>
                 <Form.Label>Brand</Form.Label>
                         <Form.Control 
                             type='text'
@@ -149,7 +149,7 @@ const ProductEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='category'>
+                <Form.Group className='mt-3' controlId='category'>
                 <Form.Label>Category</Form.Label>
                         <Form.Control 
                             type='text'
@@ -160,7 +160,7 @@ const ProductEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='countInStock'>
+                <Form.Group className='mt-3' controlId='countInStock'>
                 <Form.Label>Count In Stock</Form.Label>
                         <Form.Control 
                             type='text'
@@ -171,10 +171,12 @@ const ProductEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                  <Form.Group controlId='description'>
+                  <Form.Group className='mt-3' controlId='description'>
                 <Form.Label>Description</Form.Label>
                         <Form.Control 
                             type='text'
+                            as='textarea'
+                            row='3'
                             placeholder='Product description' 
                             value={description} 
                             onChange={(event) => 
@@ -182,7 +184,7 @@ const ProductEditView = ({match, history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                    <Button type='submit' variant='primary'>
+                    <Button className='button1 mt-3' type='submit' variant='primary'>
                         Update Product
                     </Button>
             </Form>

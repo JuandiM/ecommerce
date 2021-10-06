@@ -58,7 +58,7 @@ const PlaceOrderView = ({history}) => {
         <>
         <FormContainer>
         <ProgressBar variant="success" animated now={90} />
-           <CheckoutSteps step1 step2 step3 step4 />
+           <CheckoutSteps className='steps' step1 step2 step3 step4 />
            </FormContainer>
            <Row>
                <Col md={8}>
@@ -67,17 +67,22 @@ const PlaceOrderView = ({history}) => {
                            <h2>Shipping</h2>
                            <p>
                                <strong>Address: </strong>
+                               <div className='userName'>
                                {cart.shippingAddress.address}&nbsp;
                                {cart.shippingAddress.city}&nbsp;
                                {cart.shippingAddress.postalCode}&nbsp; 
                                {cart.shippingAddress.country}
+                               </div>
                             </p>
                        </ListGroup.Item>
 
                        <ListGroup.Item>
                            <h2>Payment Method</h2>
                                <strong>Method selected: </strong>
+                               <div className='userName'>
                                {cart.paymentMethod}
+                               </div>
+                               
                        </ListGroup.Item>
 
                        <ListGroup.Item>
@@ -132,24 +137,23 @@ const PlaceOrderView = ({history}) => {
                            </ListGroup.Item>
                            <ListGroup.Item>
                                <Row>
-                                   <Col>Total</Col>
+                                   <Col><strong>Total</strong></Col>
                                    <Col>€{cart.totalPrice}</Col>
                                </Row>
                            </ListGroup.Item>
-
-                           <ListGroup.Item>
-                               {error && <Message variant='danger'>{error}</Message>}
-                           </ListGroup.Item>
                            
-                           <ListGroup.Item>
+                           <ListGroup className="d-grid gap-2">
                                <Button 
                                type='button' 
-                               className='btn-block' 
+                               className='button1 btn-block' 
                                disabled={cart.cartItems === 0} 
                                onClick={placeOrderHandler}>
                                     Place Order
                                </Button>
-                           </ListGroup.Item>
+                           </ListGroup>
+                           <ListGroup>
+                               {error && <Message variant='danger'>{error}</Message>}
+                           </ListGroup>
                        </ListGroup>
                    </Card>
                </Col>

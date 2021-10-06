@@ -26,12 +26,13 @@ const ShippingView = ({history}) => {
     }
 
     return (
+
         <FormContainer>
             <ProgressBar variant="success" animated now={45} />
-            <CheckoutSteps step1 step2 />
+            <CheckoutSteps className='steps' step1 step2 />
             <h2>Shipping</h2>
             <Form onSubmit={submitHandler}>
-            <Form.Group controlId='address'>
+            <Form.Group className='mt-3' controlId='address'>
                     <Form.Label>Address</Form.Label>
                         <Form.Control 
                             type='text' 
@@ -43,7 +44,7 @@ const ShippingView = ({history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='city'>
+                <Form.Group className='mt-3' controlId='city'>
                     <Form.Label>City</Form.Label>
                         <Form.Control 
                             type='text' 
@@ -55,7 +56,7 @@ const ShippingView = ({history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='postal code'>
+                <Form.Group className='mt-3' controlId='postal code'>
                     <Form.Label>Postal Code</Form.Label>
                         <Form.Control 
                             type='text' 
@@ -67,7 +68,7 @@ const ShippingView = ({history}) => {
                         </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId='country'>
+                <Form.Group className='mt-3' controlId='country'>
                     <Form.Label>Country</Form.Label>
                         <Form.Control 
                             type='text' 
@@ -78,7 +79,7 @@ const ShippingView = ({history}) => {
                             setCountry(event.target.value)}>
                         </Form.Control>
                 </Form.Group>
-                <Button type='submit' variant='primary'>
+                <Button className='button1 mt-3' type='submit' variant='primary'>
                     Continue
                 </Button>
 
