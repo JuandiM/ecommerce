@@ -89,17 +89,27 @@ const OrderView = ({match, history}) => {
                        <ListGroup.Item>
                            <h2>Shipping</h2>
                            <p>
-                           <strong>Name: </strong>{order.user.name}
+                           <strong>Name: </strong>
+                           <div className='userName'>
+                              {order.user.name} 
+                           </div>
+                           
                            </p>
                            <p>
-                           <strong>Email: </strong><a href={`mailto:${order.user.email}`}>{order.user.email}</a>
+                           <strong>Email: </strong>
+                           <div className='userName'>
+                                <a  href={`mailto:${order.user.email}`}>{order.user.email}</a>
+                           </div >
                            </p>
                            <p>
                                <strong>Address: </strong>
-                               {order.shippingAddress.address} , 
-                               {order.shippingAddress.city} , 
-                               {order.shippingAddress.postalCode} , 
-                               {order.shippingAddress.country}
+                               <div className='userName'>
+                                 {order.shippingAddress.address} 
+                               {order.shippingAddress.city} 
+                               {order.shippingAddress.postalCode} 
+                               {order.shippingAddress.country}  
+                               </div>
+                               
                             </p>
                             {order.isDelivered 
                             ? <Message variant='success'>
@@ -111,7 +121,10 @@ const OrderView = ({match, history}) => {
                            <h2>Payment Method</h2>
                            <p>
                                <strong>Method selected: </strong>
-                               {order.paymentMethod}
+                               <div className='userName'>
+                                  {order.paymentMethod} 
+                               </div>
+                               
                             </p>
                             {order.isPaid 
                             ? <Message variant='success'>
