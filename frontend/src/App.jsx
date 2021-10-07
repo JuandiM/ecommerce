@@ -18,6 +18,7 @@ import UserEditView from './views/UserEditView';
 import ProductListView from './views/ProductListView';
 import ProductEditView from './views/ProductEditView';
 import OrderListView from './views/OrderListView';
+import AboutMeView from './views/AboutMeView';
 
 
 
@@ -45,6 +46,7 @@ function App() {
             <Route exact path='/search/:keyword' component={HomeView} />
             <Route exact path='/page/:pageNumber' component={HomeView} />
             <Route exact path='/search/:keyword/page/:pageNumber' component={HomeView} />
+            <Route path='/aboutme' component={AboutMeView} />
             <Route exact path='/' component={HomeView} />
         </Container>
       
