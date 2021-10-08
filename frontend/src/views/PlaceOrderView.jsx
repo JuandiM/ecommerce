@@ -15,7 +15,7 @@ const PlaceOrderView = ({history}) => {
 
     //Calculate prices & total price
     const addDecimals = (num) => {
-        return (Math.round(num * 100/100).toFixed(2))
+        return ((Math.round(num * 100) / 100).toFixed(2))
     }
 
     cart.itemsPrice = addDecimals(cart.cartItems.reduce(
